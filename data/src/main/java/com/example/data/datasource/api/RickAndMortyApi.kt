@@ -7,6 +7,6 @@ import retrofit2.http.Query
 interface RickAndMortyApi {
     @GET("location")
     suspend fun getRickAndMortyLocation(
-        @Query("page") page: Int
+        @Query("page") page: Int,
     ):RickAndMortyLocationResponse
 }
