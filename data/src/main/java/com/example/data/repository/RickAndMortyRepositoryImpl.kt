@@ -1,35 +1,29 @@
 package com.example.data.repository
 
-import com.example.common.NetworkResponseState
-import com.example.data.di.coroutine.IoDispatcher
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.example.data.datasource.api.RickAndMortyApi
 import com.example.data.mapper.RickAndMortLocationMapper
-import com.example.data.source.RemoteDataSource
+import com.example.data.source.PagingDataSource
 import com.example.domain.dto.LocationEntity
 import com.example.domain.repository.RickAndMortyRepository
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class RickAndMortyRepositoryImpl @Inject constructor(
-    private val remoteDataSource: RemoteDataSource,
+    private val rickAndMortyApi: RickAndMortyApi,
     private val rickAndMortLocationMapper: RickAndMortLocationMapper,
-    @IoDispatcher
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : RickAndMortyRepository {
-    override suspend fun getAllRickAndMortyLocations(): NetworkResponseState<List<LocationEntity>> =
-        withContext(ioDispatcher) {
-            when (val response = remoteDataSource.getAllRickAndMortyLocation(locationPage)) {
-                is NetworkResponseState.Error -> NetworkResponseState.Error(response.exception)
-                is NetworkResponseState.Success -> NetworkResponseState.Success(
-                    rickAndMortLocationMapper.map(response.result!!)
-                )
-                is NetworkResponseState.Loading -> NetworkResponseState.Loading
-            }
+    override suspend fun getAllRickAndMortyLocations(): Flow<PagingData<LocationEntity>> {
+        return Pager(
+                config = PagingConfig(
+                    pageSize = NETWORK_PAGE_SIZE
+                ),
+                pagingSourceFactory = { PagingDataSource(rickAndMortyApi,rickAndMortLocationMapper) }
+            ).flow
         }
-
     companion object {
-        const val locationPage = 1
+        const val NETWORK_PAGE_SIZE= 20
     }
-
 }

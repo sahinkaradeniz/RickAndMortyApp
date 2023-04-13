@@ -1,8 +1,9 @@
 package com.example.domain.repository
 
-import com.example.common.NetworkResponseState
+import androidx.paging.PagingData
 import com.example.domain.dto.LocationEntity
+import kotlinx.coroutines.flow.Flow
 
 interface RickAndMortyRepository {
-    suspend fun getAllRickAndMortyLocations():NetworkResponseState<List<LocationEntity>>
+    suspend fun getAllRickAndMortyLocations():Flow<PagingData<LocationEntity>>
 }

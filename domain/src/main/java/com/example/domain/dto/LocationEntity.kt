@@ -1,7 +1,7 @@
 package com.example.domain.dto
 
-class LocationEntity(
-    var id: Int,
-    var name: String,
-    var residents: ArrayList<String>,
+data class LocationEntity(
+    val id: Int,
+    val name: String,
+    val residents: ArrayList<String>,
     )
