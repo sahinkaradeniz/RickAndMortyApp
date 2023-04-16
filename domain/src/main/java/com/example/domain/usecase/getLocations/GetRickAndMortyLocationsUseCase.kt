@@ -1,9 +1,9 @@
 package com.example.domain.usecase.getLocations
 
-import androidx.paging.PagingData
-import com.example.domain.dto.LocationEntity
+import com.example.common.NetworkResult
+import com.example.domain.entity.LocationEntity
 import kotlinx.coroutines.flow.Flow
 
 interface GetRickAndMortyLocationsUseCase{
-    suspend operator fun invoke():Flow<PagingData<LocationEntity>>
+    suspend operator fun invoke():NetworkResult<List<LocationEntity>>
 }

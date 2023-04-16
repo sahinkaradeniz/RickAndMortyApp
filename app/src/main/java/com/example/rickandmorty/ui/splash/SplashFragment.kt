@@ -15,13 +15,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         splash.setLogin()
         closeSplash()
     }
-
     private fun closeSplash() {
         object : CountDownTimer(2000, 1000) {
             override fun onTick(p0: Long) {
             }
             override fun onFinish() {
-                findNavController().navigate(R.id.homeFragment)
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
             }
         }.start()
     }

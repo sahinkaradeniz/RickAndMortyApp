@@ -1,6 +1,6 @@
 package com.example.data.di.network
 
-import com.example.data.datasource.api.RickAndMortyApi
+import com.example.data.api.RickAndMortyApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -7,4 +7,4 @@ data class RickAndMortyLocationResponse(
     var info: Info,
     @SerializedName("results")
     var results: ArrayList<Results>,
-    )
+)

@@ -1,9 +1,8 @@
 package com.example.data.mapper
 
 import com.example.common.mapper.ListMapper
-import com.example.common.mapper.Mapper
 import com.example.data.dto.location.Results
-import com.example.domain.dto.LocationEntity
+import com.example.domain.entity.LocationEntity
 import javax.inject.Inject
 
 class RickAndMortLocationMapper @Inject constructor(): ListMapper<Results,LocationEntity> {

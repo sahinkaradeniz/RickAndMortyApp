@@ -41,4 +41,13 @@ dependencies {
     implementation(Glide.annotationProcessor)
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     testImplementation(TestImplementation.junit)
+    implementation(AndroidLibraries.navigationFrag)
+    implementation(AndroidLibraries.navigation)
+    implementation(AndroidLibraries.livedata)
+    implementation(AndroidLibraries.viewmodel)
+    api(AndroidLibraries.lifeCycleViewModel)
+    api(AndroidLibraries.lifecycleViewModelExt)
+    api(AndroidLibraries.lifecycleRuntime)
+    api(AndroidLibraries.kotlinCoroutineAndroid)
+    api(KotlinLibraries.kotlinCoroutineCore)
 }
