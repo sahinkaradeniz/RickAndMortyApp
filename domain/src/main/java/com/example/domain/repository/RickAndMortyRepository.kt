@@ -7,9 +7,9 @@ import com.example.domain.entity.LocationEntity
 import kotlinx.coroutines.flow.Flow
 
 interface RickAndMortyRepository {
-   fun getAllRickAndMortyLocations():Flow<PagingData<LocationEntity>>
+    fun getAllRickAndMortyLocations():Flow<PagingData<LocationEntity>>
 
-    suspend fun getRickAndMortyLocations():NetworkResult<List<LocationEntity>>
+    suspend fun getRickAndMortyCharacterWithId(id:String):NetworkResult<CharacterEntity>
 
     suspend fun getCharactersWithRickAndMortyLocation(urlList:List<String>):NetworkResult<List<CharacterEntity>>
 }

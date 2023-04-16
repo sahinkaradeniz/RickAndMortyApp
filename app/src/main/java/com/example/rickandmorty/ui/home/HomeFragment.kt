@@ -4,7 +4,9 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.common.extension.gone
 import com.example.rickandmorty.core.BaseFragment
 import com.example.rickandmorty.databinding.FragmentHomeBinding
 import com.example.rickandmorty.ui.home.adapter.HomeCharacterAdapter
@@ -22,7 +24,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val characterAdapter by lazy { HomeCharacterAdapter(::clickCharacter) }
 
     private fun clickCharacter(i: Int) {
-        Toast.makeText(requireContext(), i.toString(), Toast.LENGTH_SHORT).show()
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(i.toString()))
     }
 
     override fun onCreateFinished() {
@@ -40,7 +42,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         binding.verticalRcv.adapter=characterAdapter
         binding.verticalRcv.layoutManager=LinearLayoutManager(requireContext())
         lifecycleScope.launch {
-            viewModel.list.collectLatest {
+            viewModel.characterList.collectLatest {
                 locationAdapter.submitData(it)
             }
         }
@@ -51,11 +53,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     }
 
     private fun observeLiveData() {
-        viewModel.characterList.observe(viewLifecycleOwner) {
+        viewModel.homeUiState.observe(viewLifecycleOwner) {
             when (it) {
                 is HomeUiState.Success -> {
                     characterAdapter.updateCharacterAdapterData(it.data)
-                    binding.shimmerFrameLayout.stopShimmer()
+                    binding.shimmerFrameLayout.gone()
                 }
                 is HomeUiState.Error -> {
                     Log.e("Home Fragment", "Error: ${it.message}", )

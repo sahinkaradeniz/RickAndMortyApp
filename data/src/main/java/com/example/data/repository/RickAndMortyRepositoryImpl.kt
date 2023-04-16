@@ -8,6 +8,7 @@ import com.example.common.util.extractIdsFromUrls
 import com.example.data.api.RickAndMortyApi
 import com.example.data.di.coroutine.IoDispatcher
 import com.example.data.mapper.RickAndMortLocationMapper
+import com.example.data.mapper.RickAndMortyCharacterListMapper
 import com.example.data.mapper.RickAndMortyCharacterMapper
 import com.example.data.source.LocationPagingSource
 import com.example.data.source.RemoteDataSource
@@ -25,6 +26,7 @@ class RickAndMortyRepositoryImpl @Inject constructor(
     private val rickAndMortyApi: RickAndMortyApi,
     private val remoteDataSource: RemoteDataSource,
     private val rickAndMortLocationMapper: RickAndMortLocationMapper,
+    private val rickAndMortyCharacterListMapper: RickAndMortyCharacterListMapper,
     private val rickAndMortyCharacterMapper: RickAndMortyCharacterMapper,
     @IoDispatcher
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
@@ -41,17 +43,17 @@ class RickAndMortyRepositoryImpl @Inject constructor(
         ).flow
     }
 
-    override suspend fun getRickAndMortyLocations(): NetworkResult<List<LocationEntity>>{
-     return withContext(ioDispatcher) {
-                val response = remoteDataSource.getAllRickAndMortyLocation(NETWORK_PAGE_SIZE)
-         return@withContext response.toDomain(rickAndMortLocationMapper)
+    override suspend fun getRickAndMortyCharacterWithId(id: String): NetworkResult<CharacterEntity> {
+        return withContext(ioDispatcher){
+            val response=remoteDataSource.getCharacterWithID(id)
+            return@withContext response.toDomain(rickAndMortyCharacterMapper)
         }
     }
 
     override suspend fun getCharactersWithRickAndMortyLocation(urlList: List<String>): NetworkResult<List<CharacterEntity>> {
       return withContext(ioDispatcher) {
            val response = remoteDataSource.getCharactersWithRickAndMortyLocation(extractIdsFromUrls(urlList).toString())
-           return@withContext response.toDomain(rickAndMortyCharacterMapper)
+           return@withContext response.toDomain(rickAndMortyCharacterListMapper)
        }
     }
 

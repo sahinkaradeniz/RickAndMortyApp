@@ -47,4 +47,22 @@ class RemoteDataSourceImpl @Inject constructor(
             )
         }
     }
+
+    override suspend fun getCharacterWithID(id: String): NetworkResult<CharacterResponse> {
+        return try {
+            NetworkResult.Success(rickAndMortyApi.getCharacterWithId(id))
+        }catch (e: IOException){
+            NetworkResult.Error.IOException(
+                ResultError(
+                    errorMessage = e.localizedMessage ?: ""
+                )
+            )
+        }catch (e:HttpException){
+            NetworkResult.Error.ApiError(
+                ResultError(
+                    errorMessage = e.localizedMessage ?: ""
+                )
+            )
+        }
+    }
 }

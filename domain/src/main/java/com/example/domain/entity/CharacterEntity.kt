@@ -9,4 +9,7 @@ data class CharacterEntity(
     var gender: String,
     var image: String,
     var created: String,
+    var origin:String,
+    var location:String,
+    val episodes:String
 )

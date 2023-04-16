@@ -16,4 +16,10 @@ interface RickAndMortyApi {
     suspend fun getCharactersWithRickAndMortyLocation(
         @Path("ids") ids:String
     ): List<CharacterResponse>
+
+    @GET("character/{id}")
+    suspend fun getCharacterWithId(
+        @Path("id") id:String
+    ):CharacterResponse
+
 }

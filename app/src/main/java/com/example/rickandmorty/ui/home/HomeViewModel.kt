@@ -21,16 +21,16 @@ class HomeViewModel @Inject constructor(
     private val getCharacterLocationWithIdsUseCase: GetCharacterLocationWithIdsUseCase,
     private val characterMapper: HomeUiCharacterMapper,
 ) : ViewModel() {
-    private var _characterList = MutableLiveData<HomeUiState>()
-    val characterList: LiveData<HomeUiState> get() = _characterList
-    val list = getLocationPagingDataSourceUseCase.invoke().cachedIn(viewModelScope)
+    private var _homeUiState = MutableLiveData<HomeUiState>()
+    val homeUiState: LiveData<HomeUiState> get() = _homeUiState
+    val characterList = getLocationPagingDataSourceUseCase.invoke().cachedIn(viewModelScope)
     fun getCharactersWithLocationIds(urlList: List<String>) {
         viewModelScope.launch {
-            _characterList.postValue(HomeUiState.Loading)
+            _homeUiState.postValue(HomeUiState.Loading)
             getCharacterLocationWithIdsUseCase.invoke(urlList).onError {
-                _characterList.postValue(HomeUiState.Error(R.string.error))
+                _homeUiState.postValue(HomeUiState.Error(R.string.error))
             }.onSuccess {
-                _characterList.postValue(HomeUiState.Success(characterMapper.map(it ?: emptyList())))
+                _homeUiState.postValue(HomeUiState.Success(characterMapper.map(it ?: emptyList())))
             }
         }
     }

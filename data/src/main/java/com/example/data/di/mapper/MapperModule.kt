@@ -1,9 +1,11 @@
 package com.example.data.di.mapper
 
 import com.example.common.mapper.ListMapper
+import com.example.common.mapper.Mapper
 import com.example.data.dto.character.CharacterResponse
 import com.example.data.dto.location.Results
 import com.example.data.mapper.RickAndMortLocationMapper
+import com.example.data.mapper.RickAndMortyCharacterListMapper
 import com.example.data.mapper.RickAndMortyCharacterMapper
 import com.example.domain.entity.CharacterEntity
 import com.example.domain.entity.LocationEntity
@@ -22,5 +24,10 @@ abstract class MapperModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindRickAndMortyCharacterMapper(rickAndMortyCharacterMapper: RickAndMortyCharacterMapper): ListMapper<CharacterResponse, CharacterEntity>
+    abstract fun bindRickAndMortyCharacterListMapper(rickAndMortyCharacterListMapper: RickAndMortyCharacterListMapper): ListMapper<CharacterResponse, CharacterEntity>
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindRickAndMortyCharacterMapper(rickAndMortyCharacterMapper: RickAndMortyCharacterMapper):Mapper<CharacterResponse,CharacterEntity>
+
 }

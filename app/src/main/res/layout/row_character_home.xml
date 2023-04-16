@@ -6,9 +6,11 @@
 
     <com.example.rickandmorty.ui.customComponent.character.HomeCharacterComponent
         android:id="@+id/character_component"
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </com.example.rickandmorty.ui.customComponent.character.HomeCharacterComponent>
+        android:layout_height="match_parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"></com.example.rickandmorty.ui.customComponent.character.HomeCharacterComponent>
 
 </FrameLayout>
