@@ -1,6 +1,5 @@
 package com.example.data.source
 
-import com.example.common.NetworkResponseState
 import com.example.common.NetworkResult
 import com.example.data.dto.character.CharacterResponse
 import com.example.data.dto.location.Results

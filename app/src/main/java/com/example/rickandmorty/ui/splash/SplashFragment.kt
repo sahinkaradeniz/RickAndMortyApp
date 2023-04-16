@@ -2,9 +2,8 @@ package com.example.rickandmorty.ui.splash
 
 import android.os.CountDownTimer
 import androidx.navigation.fragment.findNavController
-import com.example.common.core.BaseFragment
 import com.example.common.util.SplashSharedPreferencesManager
-import com.example.rickandmorty.R
+import com.example.rickandmorty.core.BaseFragment
 import com.example.rickandmorty.databinding.FragmentSplashBinding
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding::inflate) {

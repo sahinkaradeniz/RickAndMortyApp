@@ -1,7 +1,6 @@
 package com.example.domain.repository
 
 import androidx.paging.PagingData
-import com.example.common.NetworkResponseState
 import com.example.common.NetworkResult
 import com.example.domain.entity.CharacterEntity
 import com.example.domain.entity.LocationEntity

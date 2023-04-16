@@ -1,4 +1,4 @@
-package com.example.common.core
+package com.example.rickandmorty.core
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -6,14 +6,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
-import com.example.common.NetworkResponseState
 import com.example.common.onError
 import com.example.common.onSuccess
 import com.example.domain.usecase.getCharacterWithLocationIds.GetCharacterLocationWithIdsUseCase
 import com.example.domain.usecase.getLocationPaging.GetLocationPagingDataSourceUseCase
 import com.example.rickandmorty.R
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -4,13 +4,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.common.core.BaseFragment
-import com.example.common.extension.gone
-import com.example.common.extension.visible
-import com.example.rickandmorty.R
+import com.example.rickandmorty.core.BaseFragment
 import com.example.rickandmorty.databinding.FragmentHomeBinding
 import com.example.rickandmorty.ui.home.adapter.HomeCharacterAdapter
 import com.example.rickandmorty.ui.home.adapter.HomeLocationAdapter
