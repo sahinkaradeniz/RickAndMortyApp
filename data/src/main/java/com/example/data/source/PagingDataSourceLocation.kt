@@ -9,7 +9,7 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 
-class LocationPagingSource @Inject constructor(
+class PagingDataSourceLocation @Inject constructor(
     private val rickAndMortyApi: RickAndMortyApi,
     private val rickAndMortLocationMapper: RickAndMortLocationMapper,
 ) : PagingSource<Int, LocationEntity>() {

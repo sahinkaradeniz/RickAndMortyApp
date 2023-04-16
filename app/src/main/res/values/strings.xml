@@ -9,4 +9,6 @@
     <string name="location">Location:</string>
     <string name="episoides">Episoides:</string>
     <string name="created_at_in_api">Created at (in Api)</string>
+    <string name="welcome">Welcome!</string>
+    <string name="retry">Retry</string>
 </resources>

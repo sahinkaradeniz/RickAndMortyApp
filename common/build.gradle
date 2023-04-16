@@ -39,7 +39,7 @@ dependencies {
     implementation(Deps.androidMaterial)
     api(Glide.glide)
     implementation(Glide.annotationProcessor)
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation(CircularProgressBar.swipeRefresh)
     testImplementation(TestImplementation.junit)
     implementation(AndroidLibraries.navigationFrag)
     implementation(AndroidLibraries.navigation)

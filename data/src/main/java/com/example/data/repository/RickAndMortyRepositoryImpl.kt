@@ -10,7 +10,7 @@ import com.example.data.di.coroutine.IoDispatcher
 import com.example.data.mapper.RickAndMortLocationMapper
 import com.example.data.mapper.RickAndMortyCharacterListMapper
 import com.example.data.mapper.RickAndMortyCharacterMapper
-import com.example.data.source.LocationPagingSource
+import com.example.data.source.PagingDataSourceLocation
 import com.example.data.source.RemoteDataSource
 import com.example.data.util.toDomain
 import com.example.domain.entity.CharacterEntity
@@ -35,7 +35,7 @@ class RickAndMortyRepositoryImpl @Inject constructor(
         return Pager(
             config = PagingConfig(pageSize = NETWORK_PAGE_SIZE),
             pagingSourceFactory = {
-                LocationPagingSource(
+                PagingDataSourceLocation(
                     rickAndMortyApi,
                     rickAndMortLocationMapper
                 )

@@ -69,6 +69,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_black"
                 android:text="@string/status"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
@@ -79,6 +80,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_black"
                 android:text="@string/specy"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
@@ -89,6 +91,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_black"
                 android:text="@string/gender"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
@@ -99,6 +102,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_black"
                 android:text="@string/origin"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
@@ -109,6 +113,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_black"
                 android:text="@string/location"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
@@ -119,6 +124,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_black"
                 android:text="@string/episoides"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
@@ -129,6 +135,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_black"
                 android:text="@string/created_at_in_api"
                 android:textSize="@dimen/titleSize"
                 android:textStyle="bold" />
@@ -146,6 +153,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_book"
                 android:textSize="@dimen/titleSize" />
 
             <TextView
@@ -155,6 +163,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_book"
                 android:textSize="@dimen/titleSize" />
 
             <TextView
@@ -164,6 +173,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_book"
                 android:textSize="@dimen/titleSize" />
 
             <TextView
@@ -173,6 +183,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_book"
                 android:textSize="@dimen/titleSize" />
 
             <TextView
@@ -182,6 +193,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_book"
                 android:textSize="@dimen/titleSize" />
 
             <TextView
@@ -191,6 +203,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_book"
                 android:textSize="@dimen/titleSize" />
 
             <TextView
@@ -200,6 +213,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/aveir_book"
                 android:textSize="@dimen/titleSize" />
         </LinearLayout>
     </LinearLayout>

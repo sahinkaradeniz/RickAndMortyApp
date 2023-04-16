@@ -23,10 +23,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val locationAdapter by lazy { HomeLocationAdapter(::clickLocation) }
     private val characterAdapter by lazy { HomeCharacterAdapter(::clickCharacter) }
 
-    private fun clickCharacter(i: Int) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(i.toString()))
-    }
-
     override fun onCreateFinished() {
         initAdapters()
         observeLiveData()
@@ -51,7 +47,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private fun clickLocation(urlList: List<String>) {
         viewModel.getCharactersWithLocationIds(urlList)
     }
-
+    private fun clickCharacter(i: Int) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(i.toString()))
+    }
     private fun observeLiveData() {
         viewModel.homeUiState.observe(viewLifecycleOwner) {
             when (it) {

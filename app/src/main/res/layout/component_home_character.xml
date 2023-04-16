@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:fontFamily="@font/aveir_black"
-            android:text="TextView"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/character_image"
@@ -41,7 +40,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/aveir_book"
-            android:text="TextView"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/character_name"
             app:layout_constraintTop_toBottomOf="@+id/character_name" />
