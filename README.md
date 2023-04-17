@@ -3,7 +3,8 @@
 ## Project Screens
 SPLASH SCREEN | HOME SCREEN | DETAİL SCREEN | 
 --- | --- | --- | 
-![Uygulama Ekran Görüntüsü](https://user-images.githubusercontent.com/85341568/232425878-a43f6aeb-d0a0-4c8c-9980-a7a958df445e.png) |![Uygulama Ekran Görüntüsü](https://user-images.githubusercontent.com/85341568/232426036-865dd774-1f16-46bd-9f11-1b8563e0a1fe.png) |![Uygulama Ekran Görüntüsü](https://user-images.githubusercontent.com/85341568/232426192-9bc3dfd3-3285-4b4a-8b47-b0072e6fe742.png) |
+![Uygulama Ekran Görüntüsü](https://user-images.githubusercontent.com/85341568/232425878-a43f6aeb-d0a0-4c8c-9980-a7a958df445e.png) |![Uygulama Ekran Görüntüsü](https://user-images.githubusercontent.com/85341568/232426036-865dd774-1f16-46bd-9f11-1b8563e0a1fe.png) |![Uygulama Ekran Görüntüsü](https://user-images.githubusercontent.com/85341568/232431819-94d88b83-639a-4cee-b194-d3a6b4551f95.png) |
+
 
 ## Project Tech stack 
 
@@ -32,3 +33,5 @@ SPLASH SCREEN | HOME SCREEN | DETAİL SCREEN |
 - [Glide ](https://github.com/bumptech/glide)
 
 - [Shimmer](https://facebook.github.io/shimmer-android/)
+
+
