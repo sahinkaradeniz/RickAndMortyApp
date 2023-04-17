@@ -18,16 +18,20 @@ class HomeLocationAdapter(private val locationClick: (residents: List<String>) -
     ) {
 
         getItem(position)?.let { location ->
-            if (oldSelectedPosition == position){
-                location.isSelected=true
+
+            if (oldSelectedPosition == position) {
+                location.isSelected = true
                 locationClick.invoke(location.residents)
             }
+
             if (location.isSelected) {
                 holder.itemView.setBackgroundResource(R.drawable.row_location_selected_bg)
             } else {
                 holder.itemView.setBackgroundResource(R.drawable.row_location_bg)
             }
+
             holder.bind(location)
+
             holder.itemView.setOnClickListener {
                 if (oldSelectedPosition != position) {
                     getItem(oldSelectedPosition)?.isSelected = false
@@ -38,6 +42,7 @@ class HomeLocationAdapter(private val locationClick: (residents: List<String>) -
                 locationClick.invoke(location.residents)
                 oldSelectedPosition = position
             }
+
         }
     }
 

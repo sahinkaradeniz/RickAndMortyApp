@@ -30,13 +30,13 @@ class HomeCharacterAdapter(private val characterClick: (Int) -> Unit) :
     }
 
     fun updateCharacterAdapterData(newItems: List<HomeCharacterUiData>) {
-       val diffResult = DiffUtil.calculateDiff(ChatDiffCallback(characterList, newItems))
+       val diffResult = DiffUtil.calculateDiff(CharacterDiffCallback(characterList, newItems))
         characterList.clear()
         characterList.addAll(newItems)
        diffResult.dispatchUpdatesTo(this)
     }
 
-    private inner class ChatDiffCallback(
+    private inner class CharacterDiffCallback(
         private val oldList: List<HomeCharacterUiData>,
         private val newList: List<HomeCharacterUiData>,
     ) : DiffUtil.Callback() {
