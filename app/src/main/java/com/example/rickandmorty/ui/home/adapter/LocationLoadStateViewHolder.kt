@@ -28,9 +28,7 @@ class LocationLoadStateViewHolder(
 
     companion object {
         fun create(parent: ViewGroup, retry: () -> Unit): LocationLoadStateViewHolder {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.row_location_horizontal_load_state, parent, false)
-            val binding = RowLocationHorizontalLoadStateBinding.bind(view)
+            val binding = RowLocationHorizontalLoadStateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return LocationLoadStateViewHolder(binding, retry)
         }
     }

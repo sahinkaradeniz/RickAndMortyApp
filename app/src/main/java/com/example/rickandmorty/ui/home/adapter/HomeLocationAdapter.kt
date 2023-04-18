@@ -14,12 +14,12 @@ class HomeLocationAdapter(private val locationClick: (residents: List<String>) -
     private var oldSelectedPosition = 0
     override fun onBindViewHolder(
         holder: HomeLocationViewHolder,
-        @SuppressLint("RecyclerView") position: Int,
+        position: Int
     ) {
+        val pos = holder.bindingAdapterPosition
+        getItem(pos)?.let { location ->
 
-        getItem(position)?.let { location ->
-
-            if (oldSelectedPosition == position) {
+            if (oldSelectedPosition == pos) {
                 location.isSelected = true
                 locationClick.invoke(location.residents)
             }
@@ -33,14 +33,14 @@ class HomeLocationAdapter(private val locationClick: (residents: List<String>) -
             holder.bind(location)
 
             holder.itemView.setOnClickListener {
-                if (oldSelectedPosition != position) {
+                if (oldSelectedPosition != pos) {
                     getItem(oldSelectedPosition)?.isSelected = false
                     notifyItemChanged(oldSelectedPosition)
                 }
                 location.isSelected = true
-                notifyItemChanged(position)
+                notifyItemChanged(pos)
                 locationClick.invoke(location.residents)
-                oldSelectedPosition = position
+                oldSelectedPosition = pos
             }
 
         }

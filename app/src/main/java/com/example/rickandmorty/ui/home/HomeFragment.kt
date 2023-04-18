@@ -1,9 +1,11 @@
 package com.example.rickandmorty.ui.home
 
 import android.util.Log
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.extension.gone
@@ -13,6 +15,7 @@ import com.example.rickandmorty.ui.home.adapter.HomeCharacterAdapter
 import com.example.rickandmorty.ui.home.adapter.HomeLocationAdapter
 import com.example.rickandmorty.ui.home.adapter.LocationLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -37,10 +40,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         )
         binding.verticalRcv.adapter=characterAdapter
         binding.verticalRcv.layoutManager=LinearLayoutManager(requireContext())
-        lifecycleScope.launch {
-            viewModel.characterList.collectLatest {
-                locationAdapter.submitData(it)
-            }
+
+        collectLatest(viewModel.locationList) {
+            locationAdapter.submitData(it)
         }
     }
 
@@ -67,5 +69,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
+    fun<T> Fragment.collectLatest(flow: Flow<T>, action: suspend (T) -> Unit) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                flow.collectLatest {
+                    action(it)
+                }
+            }
+        }
+    }
 
 }

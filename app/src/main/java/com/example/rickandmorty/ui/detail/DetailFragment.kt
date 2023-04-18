@@ -36,7 +36,9 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                 }
                 is DetailUiState.Success ->{
-                    setData(it.data!!)
+                    it.data?.let{ detailData->
+                        setData(detailData)
+                    }
                 }
             }
         }
